@@ -6,6 +6,7 @@
 package Main;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import modelo.Pixel;
 
 /**
  *
@@ -37,13 +39,7 @@ public class Proyecto1P extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String[][] archivo = Lectura.leerArchivo("Matriz_Inicio");
-        for(String[] a :  archivo){
-            for(String l :  a){
-                System.out.println(l+" ");
-            }
-            System.out.println("");
-        }
+        ArrayList<ArrayList<Pixel>> archivo =Lectura.leerArchivo("Matriz_Inicio");
         launch(args);
     }
     
