@@ -45,6 +45,13 @@ public class Proyecto1P extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String[][] archivo = Lectura.leerArchivo("Matriz_Inicio");
+        for(String[] a :  archivo){
+            for(String l :  a){
+                System.out.println(l+" ");
+            }
+            System.out.println("");
+        }
         launch(args);
     }
     
