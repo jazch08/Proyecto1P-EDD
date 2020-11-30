@@ -25,6 +25,6 @@
       <VBox prefHeight="300.0" prefWidth="123.0" style="-fx-background-color: aaffff44;" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <VBox fx:id="colores" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox fx:id="colores" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: faaff0;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

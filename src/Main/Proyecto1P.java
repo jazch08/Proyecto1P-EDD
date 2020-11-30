@@ -39,7 +39,6 @@ public class Proyecto1P extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<ArrayList<Pixel>> archivo =Lectura.leerArchivo("Matriz_Inicio");
         launch(args);
     }
     
