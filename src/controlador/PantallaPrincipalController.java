@@ -8,6 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -27,15 +29,19 @@ public class PantallaPrincipalController implements Initializable {
     private GridPane Matriz;
     @FXML
     private VBox colores;
+    @FXML
+    private ImageView play;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //crearMatriz(Lectura.leerArchivo("Matriz_Inicio"));
+//        crearMatriz(Lectura.leerArchivo("Matriz_Inicio"));
         crearMatrizColores(Lectura.leerArchivo("Matriz_Inicio"));
-        //Crear();
+//        Crear();
     }
 
     private void Crear() {
+        ImageView img = new ImageView();
+        img.onMouseClickedProperty();
         Matriz = new GridPane();
         int numero = 0;
         for (int c = 0; c < Lectura.columnas; c++) {
@@ -82,6 +88,12 @@ public class PantallaPrincipalController implements Initializable {
         //colores.getChildren().add(Matriz);
         //Label lb = new Label("Hola");
         //colores.getChildren().add(lb);
+    }
+    
+     @FXML
+    private void setAction(MouseEvent event) {
+        ImageView pausa = new ImageView("/src/Archivos/pause.png");
+        play.setImage(pausa.getImage());
     }
     
 }
