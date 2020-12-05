@@ -12,7 +12,7 @@ import javafx.scene.shape.Rectangle;
  * @author Jorge
  */
 public class Pixel {
-    String cdX,cdY;
+    int cdX,cdY;
     String codColor;
     Color color= Color.WHITE;
     Rectangle rectangulo;
@@ -77,6 +77,16 @@ public class Pixel {
     public Label getLb() {
         return lb;
     }
+
+    public void setCdX(int cdX) {
+        this.cdX = cdX;
+    }
+
+    public void setCdY(int cdY) {
+        this.cdY = cdY;
+    }
+    
+    
 
     public Rectangle getRectangulo() {
         return rectangulo;
