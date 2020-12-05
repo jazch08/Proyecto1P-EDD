@@ -84,7 +84,6 @@ public class PantallaPrincipalController implements Initializable {
                 c++;
                 e.setCdY(f);
                 e.setCdX(c);
-                System.out.println(e.toString());
             }
             colores.getChildren().add(elementos);
             f++;
