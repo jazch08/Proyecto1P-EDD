@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
  * @author Jorge
  */
 public class Pixel {
+
     private Punto coordenada;
     String codColor;
     private Label lb;

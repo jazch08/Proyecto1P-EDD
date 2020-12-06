@@ -58,10 +58,11 @@ public class PantallaPrincipalController implements Initializable {
     
     private void crearMatrizColores(ArrayList<ArrayList<Pixel>> cFilas) {
         colores.setAlignment(Pos.CENTER);
-        int f=0, c=0;
+        int f=1;
         for(ArrayList<Pixel> filas : cFilas){
             HBox elementos = new HBox();
             elementos.setAlignment(Pos.CENTER);
+            int c=0;
             for(Pixel e : filas){
                 elementos.getChildren().add(e.getLb());
                 c++;
