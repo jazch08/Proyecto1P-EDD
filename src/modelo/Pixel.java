@@ -4,53 +4,26 @@
  * and open the template in the editor.
  */
 package modelo;
+import java.util.Objects;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 /**
  *
  * @author Jorge
  */
 public class Pixel {
-    String cdX,cdY;
+    private Punto coordenada;
     String codColor;
-    Color color= Color.WHITE;
-    Rectangle rectangulo;
-    Label lb;
+    private Label lb;
 
-    public Pixel(String color) {
-        this.codColor=color;
-        rectangulo = new Rectangle();
+    public Pixel(Punto punto, String color) {
+        this.coordenada = punto;
+        this.codColor = color;
         lb = new Label("");
         lb.setMinSize(30, 30);
-        anadirColorRec(color);
         anadirColorLb(color);
     }
     
-    private void anadirColorRec(String c){
-        switch(c){
-            case "0":
-                color = Color.WHITE;
-                break;
-            case "1":
-                color = Color.AQUA;
-                break;
-            case "2":
-                color = Color.BLUEVIOLET;
-                break;
-            case "3":
-                color = Color.GOLD;
-                break;
-            case "4":
-                color = Color.ORANGE;
-                break;
-            
-        }
-        rectangulo.setFill(color);
-    }
-    
     private void anadirColorLb(String c){
-        //lb.setStyle("-fx-border-color: #000000");
         String estilo = "-fx-border-color: #000000; -fx-background-color: ";
         switch(c){
             case "0":
@@ -78,13 +51,44 @@ public class Pixel {
         return lb;
     }
 
-    public Rectangle getRectangulo() {
-        return rectangulo;
+    public String getCodColor() {
+        return codColor;
+    }
+
+    public Punto getCoordenada() {
+        return coordenada;
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.coordenada);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pixel other = (Pixel) obj;
+        if (!Objects.equals(this.coordenada, other.coordenada)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
+    @Override
     public String toString() {
-        return "("+ cdX + "," + cdY + ')';
+        return coordenada.toString();
     }
     
     

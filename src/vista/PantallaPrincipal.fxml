@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
@@ -9,15 +14,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PantallaPrincipalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PantallaPrincipalController">
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: ffff4444;" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="498.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="30.0">
                <children>
                   <VBox prefHeight="100.0" prefWidth="153.0">
                      <children>
-                        <Slider blockIncrement="1.0" majorTickUnit="5.0" max="10.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
+                        <Slider fx:id="velocidad" blockIncrement="1.0" majorTickUnit="5.0" max="5.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
                            <VBox.margin>
                               <Insets left="5.0" top="10.0" />
                            </VBox.margin></Slider>
@@ -28,15 +33,15 @@
                         </Label>
                      </children>
                   </VBox>
-                  <ImageView fx:id="play" fitHeight="79.0" fitWidth="129.0" onMouseClicked="#setAction" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Archivos/play.png" />
-                     </image>
+                  <ImageView fx:id="play" fitHeight="79.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets left="30.0" right="25.0" top="5.0" />
                      </HBox.margin>
+                     <image>
+                        <Image url="@../Archivos/play.png" />
+                     </image>
                   </ImageView>
-                  <ImageView fitHeight="74.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="siguiente" fitHeight="74.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Archivos/next.png" />
                      </image>
@@ -45,6 +50,12 @@
                      </HBox.margin>
                   </ImageView>
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
             </HBox>
          </children>
       </HBox>

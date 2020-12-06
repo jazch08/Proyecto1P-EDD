@@ -3,20 +3,24 @@ package controlador;
 import Main.Lectura;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import modelo.Pixel;
+import modelo.Punto;
+import operaciones.OperacionesCluster;
+import operaciones.operacionMatriz;
 
 /**
  * FXML Controller class
@@ -31,46 +35,26 @@ public class PantallaPrincipalController implements Initializable {
     private VBox colores;
     @FXML
     private ImageView play;
+    @FXML
+    private ImageView siguiente;
+    
+    boolean cambioPlay = false;
+    @FXML
+    private Slider velocidad;
+    
+    Thread th;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        crearMatriz(Lectura.leerArchivo("Matriz_Inicio"));
-        crearMatrizColores(Lectura.leerArchivo("Matriz_Inicio"));
-//        Crear();
+        //ArrayList<ArrayList<Pixel>> matrizColores = Lectura.leerArchivo("Matriz_Inicio");
+        HashMap<Punto, Pixel> m = Lectura.leerArc("Matriz_Inicio");
+        crearMatrizColor(m);
+        OperacionesCluster.dividirPorCluster(m);
+        //crearMatrizColores(matrizColores);
+        th = new Thread(new operacionMatriz());
+        play.setOnMouseClicked(e -> clickPlay());
     }
 
-    private void Crear() {
-        ImageView img = new ImageView();
-        img.onMouseClickedProperty();
-        Matriz = new GridPane();
-        int numero = 0;
-        for (int c = 0; c < Lectura.columnas; c++) {
-            for (int f = 0; f < Lectura.filas; f++) {
-                Rectangle rectangle = new Rectangle();
-                if (numero == 0) {
-                    rectangle.setFill(Color.RED);
-                }
-                Matriz.setConstraints(rectangle,f,c);
-                Matriz.getChildren().add(rectangle);
-            }
-        }
-        colores.getChildren().add(Matriz);
-    }
-    private void crearMatriz(ArrayList<ArrayList<Pixel>> cFilas) {
-        Matriz = new GridPane();
-        int f=0, c=0;
-        for(ArrayList<Pixel> filas : cFilas){
-            for(Pixel e : filas){
-                Matriz.setConstraints(e.getLb(),c,f);
-                Matriz.getChildren().add(e.getLb());
-                c++;
-            }
-            f++;
-        }
-        colores.getChildren().add(Matriz);
-        //Label lb = new Label("Hola");
-        //colores.getChildren().add(lb);
-    }
     
     private void crearMatrizColores(ArrayList<ArrayList<Pixel>> cFilas) {
         colores.setAlignment(Pos.CENTER);
@@ -85,15 +69,33 @@ public class PantallaPrincipalController implements Initializable {
             colores.getChildren().add(elementos);
             f++;
         }
-        //colores.getChildren().add(Matriz);
-        //Label lb = new Label("Hola");
-        //colores.getChildren().add(lb);
     }
     
-     @FXML
-    private void setAction(MouseEvent event) {
-        ImageView pausa = new ImageView("/src/Archivos/pause.png");
-        play.setImage(pausa.getImage());
+    private void crearMatrizColor(HashMap<Punto, Pixel> matrizColor) {
+        colores.setAlignment(Pos.CENTER);
+        for(int f=0; f<=Lectura.filas ; f++){
+            HBox elementos = new HBox();
+            elementos.setAlignment(Pos.CENTER);
+            for(int c=0; c<=Lectura.columnas ; c++){
+                elementos.getChildren().add((matrizColor.get(new Punto(f,c))).getLb());
+            }
+            colores.getChildren().add(elementos);
+        }
+        
     }
     
+    private void clickPlay(){
+        Image imagen = null;
+        if(cambioPlay){
+            imagen = new Image("Archivos/play.png");
+            cambioPlay = false;
+            //th.start();       
+        }
+        else{
+            imagen = new Image("Archivos/pause.png");
+            cambioPlay = true;
+        }
+        play.setImage(imagen);
+    }
+   
 }

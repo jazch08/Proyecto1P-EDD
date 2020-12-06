@@ -7,6 +7,7 @@ package Main;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,7 +18,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import modelo.Cluster;
 import modelo.Pixel;
+import modelo.Punto;
+import operaciones.OperacionesCluster;
 
 /**
  *
@@ -39,7 +43,17 @@ public class Proyecto1P extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        //HashMap<Punto, Pixel> m = Lectura.leerArc("Matriz_Inicio");
+      
         launch(args);
+        
+        OperacionesCluster.dividirPorCluster(Lectura.leerArc("Matriz_Inicio"));
+        System.out.println("----------------------------------");
+        for(Cluster c: OperacionesCluster.cluters){
+            System.out.println(c);
+        } 
+        System.out.println("----------------------------------");
     }
     
 }
