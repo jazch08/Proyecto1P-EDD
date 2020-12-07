@@ -23,18 +23,18 @@ public class operacionMatriz implements Runnable{
     
     @Override
     public void run() {
-       int incrementador = 0;
        PriorityQueue<Cluster> c = OperacionesCluster.cluters;
-       while(c.isEmpty()){
+       while(!c.isEmpty()){
+           
            LinkedList<Pixel> listaP = c.poll().getPixeles();
-           Iterator iter = c.poll().getPixeles().iterator();
+           Iterator iter = listaP.iterator();
            while(iter.hasNext()){
                Pixel pix = (Pixel)iter.next();
                try {
                    Label lb = pix.getLb();
                    Platform.runLater(()->lb.setStyle("-fx-border-color: #000000; -fx-background-color: #ffa500;"));
                    Thread.sleep(1000);
-               } catch (InterruptedException ex) {
+               } catch (InterruptedException|NullPointerException ex) {
                    Logger.getLogger(operacionMatriz.class.getName()).log(Level.SEVERE, null, ex);
                }
                

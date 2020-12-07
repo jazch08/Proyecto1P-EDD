@@ -90,7 +90,7 @@ public class PantallaPrincipalController implements Initializable {
         if(cambioPlay){
             imagen = new Image("Archivos/play.png");
             cambioPlay = false;
-            //th.start();       
+            th.start();       
         }
         else{
             imagen = new Image("Archivos/pause.png");
@@ -99,4 +99,5 @@ public class PantallaPrincipalController implements Initializable {
         play.setImage(imagen);
     }
    
+    
 }

@@ -18,7 +18,7 @@ public class OrdenamientoCluster implements Comparator<Cluster>{
 
     @Override
     public int compare(Cluster o1, Cluster o2) {
-        int operacion = o1.getTamano()-o2.getTamano();
+        int operacion = o2.getTamano()-o1.getTamano();
         
         if(operacion > 0){
             return 1;
@@ -42,10 +42,10 @@ public class OrdenamientoCluster implements Comparator<Cluster>{
                 }
                 incremento++;
             }
-            if(minimo1-minimo2>0){
+            if(minimo2-minimo1>0){
                 return 1;
             }
-            else if(minimo1-minimo2<0){
+            else if(minimo2-minimo1<0){
                 return -1;
             }
             else{
