@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -14,22 +16,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PantallaPrincipalController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PantallaPrincipalController">
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: ffff4444;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: ffff4444;" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="30.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="522.0" spacing="30.0">
                <children>
-                  <VBox prefHeight="100.0" prefWidth="153.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="153.0">
                      <children>
-                        <Slider fx:id="velocidad" blockIncrement="1.0" majorTickUnit="4.0" max="5.0" min="1.0" showTickLabels="true" showTickMarks="true" value="1.0">
+                        <Slider fx:id="velocidad" blockIncrement="1.0" majorTickUnit="4.0" max="5.0" min="1.0" prefHeight="50.0" prefWidth="148.0" showTickLabels="true" showTickMarks="true" value="1.0">
                            <VBox.margin>
                               <Insets left="5.0" top="10.0" />
-                           </VBox.margin></Slider>
-                        <Label text="Velocidad">
-                           <padding>
-                              <Insets left="50.0" top="15.0" />
-                           </padding>
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor></Slider>
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="153.0" text="Velocidad" wrapText="true">
+                           <font>
+                              <Font name="Arial Black" size="14.0" />
+                           </font>
                         </Label>
                      </children>
                   </VBox>
@@ -40,6 +45,9 @@
                      <image>
                         <Image url="@../Archivos/play.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                   <ImageView fx:id="siguiente" fitHeight="74.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,6 +56,9 @@
                      <HBox.margin>
                         <Insets left="25.0" top="5.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
                   </ImageView>
                </children>
                <HBox.margin>
@@ -56,12 +67,30 @@
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
             </HBox>
+            <Button fx:id="cargar" mnemonicParsing="false" prefHeight="51.0" prefWidth="81.0" style="-fx-background-radius: 35; -fx-background-insets: 2; -fx-background-color: #1e90ff; -fx-border-width: 3; -fx-border-radius: 30; -fx-border-color: #000080;" text="Cargar" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </HBox>
    </bottom>
    <left>
-      <VBox prefHeight="300.0" prefWidth="123.0" style="-fx-background-color: aaffff44;" BorderPane.alignment="CENTER" />
+      <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="123.0" style="-fx-background-color: aaffff44;" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane opacity="0.51" prefHeight="367.0" prefWidth="123.0" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="PilaDinamica" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="120.0" />
+               </content>
+            </ScrollPane>
+         </children></VBox>
    </left>
    <center>
       <VBox fx:id="colores" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: faaff0;" BorderPane.alignment="CENTER" />
