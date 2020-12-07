@@ -85,7 +85,7 @@
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="123.0" style="-fx-background-color: aaffff44;" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane opacity="0.51" prefHeight="367.0" prefWidth="123.0" vbarPolicy="ALWAYS">
+            <ScrollPane hbarPolicy="NEVER" opacity="0.51" prefHeight="374.0" prefWidth="123.0" vbarPolicy="ALWAYS">
                <content>
                   <VBox fx:id="PilaDinamica" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="120.0" />
                </content>

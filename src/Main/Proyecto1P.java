@@ -6,21 +6,12 @@
 package Main;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import modelo.Cluster;
-import modelo.Pixel;
-import modelo.Punto;
 import operaciones.OperacionesCluster;
 
 /**
@@ -28,7 +19,7 @@ import operaciones.OperacionesCluster;
  * @author Matias Vasconez
  */
 public class Proyecto1P extends Application {
-    
+    public static boolean Seguir = true;
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/vista/PantallaPrincipal.fxml"));
@@ -37,14 +28,13 @@ public class Proyecto1P extends Application {
         primaryStage.setTitle("Game");
         primaryStage.setResizable(false);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(e -> Seguir=false);
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        //HashMap<Punto, Pixel> m = Lectura.leerArc("Matriz_Inicio");
       
         launch(args);
         

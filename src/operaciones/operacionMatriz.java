@@ -5,6 +5,7 @@
  */
 package operaciones;
 
+import Main.Proyecto1P;
 import controlador.PantallaPrincipalController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,7 @@ public class operacionMatriz implements Runnable{
     
     @Override
     public void run() {
-        while(PantallaPrincipalController.continuar){
+        while(PantallaPrincipalController.continuar && Proyecto1P.Seguir){
             try {
                 long factor = (long)velocidad.getValue();
                 PantallaPrincipalController.Next();

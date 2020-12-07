@@ -46,15 +46,16 @@ public class PantallaPrincipalController implements Initializable {
     @FXML
     private Button cargar;
     
-    public static boolean continuar = true,cambioPlay = true,cargado = false;
-    static PriorityQueue<Cluster> c = OperacionesCluster.cluters;
+    private static boolean cambioPlay = true,cargado = false;
+    private static PriorityQueue<Cluster> c = OperacionesCluster.cluters;
+    public static boolean continuar = true;
     public static Iterator iter;
     public static VBox pila;
     Thread th;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         pila=PilaDinamica;
+        pila=PilaDinamica;
         cargar.setOnMouseClicked(e->cargar());
         
         play.setOnMouseClicked(e -> cargadoPlay());
@@ -63,6 +64,7 @@ public class PantallaPrincipalController implements Initializable {
     }
     
     private void cargar(){
+        //Valores Iniciales
         continuar = false;
         cargado=true;
         play.setImage(new Image("Archivos/play.png"));
@@ -70,6 +72,7 @@ public class PantallaPrincipalController implements Initializable {
         OperacionesCluster.cluters.clear();
         colores.getChildren().clear();
         PilaDinamica.getChildren().clear();
+        //Carga de archivos
         HashMap<Punto, Pixel> m = Lectura.leerArc("Matriz_Inicio");
         crearMatrizColor(m);
         OperacionesCluster.dividirPorCluster(m);
