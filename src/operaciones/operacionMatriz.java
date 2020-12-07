@@ -30,7 +30,7 @@ public class operacionMatriz implements Runnable{
                 long factor = (long)velocidad.getValue();
                 PantallaPrincipalController.Next();
                 Thread.sleep(2000/factor);
-            } catch (InterruptedException|NullPointerException ex) {
+            } catch (InterruptedException ex) {
                 Logger.getLogger(operacionMatriz.class.getName()).log(Level.SEVERE, null, ex);
             }
                

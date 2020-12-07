@@ -18,7 +18,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PantallaPrincipalController">
    <bottom>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: ffff4444;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0" style="-fx-background-color: #ffebcd;" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="522.0" spacing="30.0">
                <children>
@@ -29,7 +29,7 @@
                               <Insets left="5.0" top="10.0" />
                            </VBox.margin>
                            <cursor>
-                              <Cursor fx:constant="DEFAULT" />
+                              <Cursor fx:constant="HAND" />
                            </cursor></Slider>
                         <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="153.0" text="Velocidad" wrapText="true">
                            <font>
@@ -57,7 +57,7 @@
                         <Insets left="25.0" top="5.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="DEFAULT" />
+                        <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
                </children>
@@ -83,11 +83,14 @@
       </HBox>
    </bottom>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="123.0" style="-fx-background-color: aaffff44;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="123.0" style="-fx-background-color: #b0e0e6;" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane hbarPolicy="NEVER" opacity="0.51" prefHeight="374.0" prefWidth="123.0" vbarPolicy="ALWAYS">
+            <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.51" prefHeight="373.0" prefWidth="123.0" vbarPolicy="ALWAYS">
                <content>
-                  <VBox fx:id="PilaDinamica" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="120.0" />
+                  <VBox fx:id="PilaDinamica" alignment="TOP_CENTER" prefHeight="369.0" prefWidth="109.0">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                     </children></VBox>
                </content>
             </ScrollPane>
          </children></VBox>

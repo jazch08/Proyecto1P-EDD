@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -77,6 +78,7 @@ public class PantallaPrincipalController implements Initializable {
         crearMatrizColor(m);
         OperacionesCluster.dividirPorCluster(m);
         iter=obtenerIterator();
+       
     }
     
     private void cargadoPlay(){
@@ -140,7 +142,7 @@ public class PantallaPrincipalController implements Initializable {
             Pixel pix = (Pixel)iter.next();
             Label lb = pix.getLb();
             Platform.runLater(()->lb.setStyle("-fx-border-color: #000000; -fx-background-color: #ffa500;"));
-            Platform.runLater(()->pila.getChildren().add(new Label(pix.toString())));       
+            Platform.runLater(()->pila.getChildren().addAll(new Label(pix.toString()),new Separator()));       
         }
         else{
             iter=obtenerIterator();

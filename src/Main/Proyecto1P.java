@@ -35,15 +35,11 @@ public class Proyecto1P extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      
-        launch(args);
         
-        OperacionesCluster.dividirPorCluster(Lectura.leerArc("Matriz_Inicio"));
-        System.out.println("----------------------------------");
+        launch(args);
         for(Cluster c: OperacionesCluster.cluters){
             System.out.println(c);
-        } 
-        System.out.println("----------------------------------");
+        }
     }
     
 }

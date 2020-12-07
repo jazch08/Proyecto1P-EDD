@@ -21,13 +21,14 @@ import modelo.Punto;
  */
 public class OperacionesCluster {
 
-    public static final PriorityQueue<Cluster> cluters = new PriorityQueue<>(new OrdenamientoCluster()); //(Cluster c1, Cluster c2) -> c1.getTamano()-c2.getTamano()
+    public static final PriorityQueue<Cluster> cluters = new PriorityQueue<>(new OrdenamientoCluster());
 
     private static ArrayList<Pixel> pixelesUsados = new ArrayList<>();
 
     private static Pixel nulo = new Pixel(new Punto(-2, -2), "-2");
 
     public static void dividirPorCluster(HashMap<Punto, Pixel> matrizColores) {
+        pixelesUsados.clear();
         for (int f = 0; f <= Lectura.filas; f++) {
             for (int c = 0; c <= Lectura.columnas; c++) {
                 Pixel pix = matrizColores.get(new Punto(f, c));
